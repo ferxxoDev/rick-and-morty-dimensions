@@ -3,6 +3,7 @@ import './App.css'
 import getRandomNumber from './utils/getRandomNumber'
 import axios from 'axios'
 import LocationInfo from './components/LocationInfo'
+import CardResident from './components/CardResident'
 
 function App() {
 
@@ -18,13 +19,23 @@ function App() {
 
   }, [])
   
-  console.log(location);
-
 
   return (
     <div className="App">
-      <h1>Entregable 3</h1>
-      <LocationInfo/>
+      <h1>Rick and Morty</h1>
+      <LocationInfo location={location}/>
+      
+      <div>
+      {
+        location?.residents.map(url => (
+          <CardResident 
+          key={url}
+          url={url}
+          />
+        ))
+      }
+      </div>
+
     </div>
   )
 }
