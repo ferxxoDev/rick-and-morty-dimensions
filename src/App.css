@@ -1,1 +1,12 @@
+.App{
+    max-width: 1620px;
+    margin-left: auto;
+    margin-right: auto;
+}
 
+.card-container{
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
