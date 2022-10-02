@@ -5,6 +5,7 @@ import axios from 'axios'
 import LocationInfo from './components/LocationInfo'
 import CardResident from './components/CardResident'
 import FilterList from './components/FilterList'
+import Error from './components/Error'
 
 function App() {
   
@@ -14,6 +15,8 @@ function App() {
   const [searchInput, setSearchInput] = useState('')
   // Para guardar las sugerencias de la apo
   const [suggestedList, setsuggestedList] = useState()
+  // Para indicar si hay error o no
+  const [hasError, setHasError] = useState(false)
 
 
 
@@ -26,8 +29,11 @@ function App() {
     const URL = `https://rickandmortyapi.com/api/location/${id}`
 
     axios.get(URL)
-      .then(res => setLocation(res.data))
-      .catch(err =>console.log(err))
+      .then(res => {
+        setHasError(false)
+        setLocation(res.data)
+      })
+      .catch(err =>setHasError(true))
 
   }, [searchInput])
 
@@ -69,18 +75,24 @@ function App() {
         />
       </form>
 
-      <LocationInfo location={location}/>
-
-      <div>
-      {
-        location?.residents.map(url => (
-          <CardResident 
-          key={url}
-          url={url}
-          />
-        ))
-      }
-      </div>
+     { 
+        hasError ?
+        <Error/>
+        :
+        <>
+          <LocationInfo location={location}/>
+          <div>
+            {
+              location?.residents.map(url => (
+                <CardResident 
+                  key={url}
+                  url={url}
+                />
+              ))
+            }
+       </div>
+       </>
+     }
 
     </div>
   )
