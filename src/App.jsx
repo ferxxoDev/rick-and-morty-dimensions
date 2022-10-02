@@ -14,7 +14,11 @@ function App() {
   console.log(searchInput);
 
   useEffect(() => {
-    const random = getRandomNumber()
+    let id = getRandomNumber()
+    if(searchInput){
+      id = searchInput
+    }
+    
     const URL = `https://rickandmortyapi.com/api/location/${random}`
 
     axios.get(URL)
