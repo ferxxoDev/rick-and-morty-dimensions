@@ -9,6 +9,10 @@ function App() {
 
   const [location, setLocation] = useState()
 
+  const [searchInput, setSearchInput] = useState('')
+
+  console.log(searchInput);
+
   useEffect(() => {
     const random = getRandomNumber()
     const URL = `https://rickandmortyapi.com/api/location/${random}`
@@ -17,14 +21,26 @@ function App() {
       .then(res => setLocation(res.data))
       .catch(err =>console.log(err))
 
-  }, [])
-  
+  }, [searchInput])
+
+  const handleSubmit = event => {
+    event.preventDefault()
+    setSearchInput(event.target.idLocation.value)
+  }
 
   return (
     <div className="App">
       <h1>Rick and Morty</h1>
+
+      <form onSubmit={handleSubmit}>
+        <input
+          id='idLocation'
+          placeholder='Enter another number from 1 to 126' type="text" />
+        <button>Search</button>
+      </form>
+
       <LocationInfo location={location}/>
-      
+
       <div>
       {
         location?.residents.map(url => (

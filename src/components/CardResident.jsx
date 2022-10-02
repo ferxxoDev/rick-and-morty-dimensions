@@ -11,7 +11,6 @@ const CardResident = ({url}) => {
         .catch(err => console.log(err))
     }, [])
     
-    console.log(resident);
 
   return (
     <article>
