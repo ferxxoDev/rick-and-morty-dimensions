@@ -1,67 +1,7 @@
-:root{
-    /* --bg-body:; */
-    /* --bg-card:; */
-    /* --bg-title:; */
-    font-size: 16px;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    padding: 1em;
-}
-
 .App{
     max-width: 1620px;
     margin-left: auto;
     margin-right: auto;
-    text-align: center;
-}
-
-.titlePage{
-    text-shadow: 2px 2px 3px greenyellow;
-    display: flex;
-    justify-content: space-between;
-}
-
-.logoTitle{
-    width: 30%;
-}
-
-.titlePage h1{
-    font-size: clamp(1rem, 3vw, 3.5rem);
-
-}
-
-.titlePage span{
-    color: cornflowerblue;
-}
-
-form{
-    position: relative;
-    margin-top: 0.6rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.4rem;
-    font-size: 0.8em;
-}
-
-.searchBar{
-    background-color: hsl(84, 100%, 59%,10%);
-    color: white;
-    text-align: center;
-
-}
-
-.suggestedList{
-    position: absolute;
-    top: 80px;
-    right: 0;
-    padding-right: 15px;
-    max-height: 130px;
-    overflow-y: scroll;
-    text-align: right;
-}
-
-.dataDimension{
-    margin: 2em 1em;
-    text-align: left;
 }
 
 .card-container{
