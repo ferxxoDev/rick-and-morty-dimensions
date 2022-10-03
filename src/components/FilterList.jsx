@@ -1,10 +1,6 @@
 import React from 'react'
 
-const FilterList = ({suggestedList, setSearchInput}) => {
-
-    console.log(suggestedList);
-
-    const handleClick = id => setSearchInput(id)
+const FilterList = ({suggestedList, handleClick}) => {
 
   return (
     <ul className='suggestedList'>

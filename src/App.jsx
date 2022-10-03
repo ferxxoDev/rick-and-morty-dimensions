@@ -4,8 +4,8 @@ import getRandomNumber from './utils/getRandomNumber'
 import axios from 'axios'
 import LocationInfo from './components/LocationInfo'
 import CardResident from './components/CardResident'
-import FilterList from './components/FilterList'
 import Error404 from './components/Error404'
+import SearchBar from './components/SearchBar'
 
 function App() {
 
@@ -40,6 +40,8 @@ function App() {
   const handleSubmit = event => {
     event.preventDefault()
     setSearchInput(event.target.idLocation.value)
+    event.target.idLocation.value = ""
+    setsuggestedList()
   }
 
   const handleChange = event => {
@@ -64,24 +66,13 @@ function App() {
         <img className="logoTitle" src="../images/Rick_and_Morty.svg" alt="dont show" />
         <div className="barTitle">
           {/* <h1>Rick and Morty <span>APP</span></h1> */}
-          <form onSubmit={handleSubmit}>
-            <label for="idLocation">
-              {/* Search by number ID dimension */}
-            </label>
-            <input
-
-              className='searchBar' 
-              id='idLocation'
-              placeholder='Search by dimension ID number'
-              type="text"
-              onChange={handleChange}
-            />
-            <button>Search</button>
-            <FilterList
-              suggestedList={suggestedList}
-              setSearchInput={setSearchInput}
-            />
-          </form>
+          <SearchBar 
+            handleSubmit={handleSubmit}
+            handleChange={handleChange}
+            suggestedList={suggestedList}
+            setSearchInput={setSearchInput}
+            setsuggestedList={setsuggestedList}
+          />
         </div>
       </div>
 
