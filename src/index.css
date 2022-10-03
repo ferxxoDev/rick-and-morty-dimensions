@@ -1,13 +1,15 @@
 /*Toca el Reset*/
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
 
 :root{
     --background-card: #062226;
     --background-body: #06292e;
 }
 
-*{
-    box-sizing: border-box;
-}
 
 body{
     margin: 0;
@@ -27,11 +29,9 @@ ul{
 
 img{
     display: block;
+    width: 100%;
 }
 
-button{
-    border: none;
-}
 
 input{
     outline: none;

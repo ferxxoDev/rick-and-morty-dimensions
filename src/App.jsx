@@ -5,7 +5,7 @@ import axios from 'axios'
 import LocationInfo from './components/LocationInfo'
 import CardResident from './components/CardResident'
 import FilterList from './components/FilterList'
-import Error from './components/Error'
+import Error404 from './components/Error404'
 
 function App() {
 
@@ -63,16 +63,16 @@ function App() {
       <div className='titlePage'>
         <img className="logoTitle" src="../images/Rick_and_Morty.svg" alt="dont show" />
         <div className="barTitle">
-          <h1>Rick and Morty <span>APP</span></h1>
+          {/* <h1>Rick and Morty <span>APP</span></h1> */}
           <form onSubmit={handleSubmit}>
             <label for="idLocation">
-              Search by number ID dimension
+              {/* Search by number ID dimension */}
             </label>
             <input
 
               className='searchBar' 
               id='idLocation'
-              placeholder='From 1 to 126'
+              placeholder='Search by dimension ID number'
               type="text"
               onChange={handleChange}
             />
@@ -89,7 +89,7 @@ function App() {
 
       {
         hasError ?
-          <Error />
+          <Error404 />
           :
           <>
             <LocationInfo location={location} />
